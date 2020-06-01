@@ -4,6 +4,17 @@
 \usepackage{amssymb}
 \usepackage{mathtools}
 \usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{centernot}
+\usepackage[utf8]{inputenc}
+\usepackage[brazil]{babel}
+\usepackage{enumerate}
+\usepackage{graphicx}
+\newcommand{\al}{\alpha}
+\newcommand{\be}{\beta}
+\newcommand{\pa}{\partial}
 
 
 \usepackage{geometry}
@@ -23,6 +34,92 @@
 \date{}
 \maketitle
 
+\begin{enumerate}
 
+%----------------------------------------------------------------------------------------------------------
+    
+\item 
+
+%----------------------------------------------------------------------------------------------------------
+
+\item 
+
+%----------------------------------------------------------------------------------------------------------
+
+\item 
+
+\begin{enumerate}[(a)]
+    
+    \item Note that $E(Y_t) - \mu$ for all $t \in \mathbb{N}.$ Hence, 
+    \begin{align*}
+        C(Y_i,Y_j) &= E[(Y_i-\mu)(Y_j - \mu)] \\
+        &= E[(U_i + \theta U_{i-1})(U_j + \theta U_{j-1})] \\
+        &= E[U_iU_j + \theta(U_{i-1}U_j + U_iU_{j-1}) + \theta^2U_{i-1}U_{j-1}]
+    \end{align*}
+    Now since the $U_i$'s are independent, we have
+    \begin{align*}
+        C(Y_i,Y_J) &= \mu^2 + 2\theta\mu^2 + \theta^2\mu^2 \\
+        &= (\mu + \mu\theta)^2
+    \end{align*}
+    
+    \item Note that 
+    \begin{align*}
+        V(Y_1) &= V(\mu + U_1 + \theta U_0) = 1 + \theta^2
+    \end{align*}
+    Again because the $U_i$'s are independent. Hence the variance of the sample mean is given by
+    $$V(\Bar{Y}_n) = \dfrac{1+\theta^2}{n}.$$
+    Now, by Chebychev's inequality we have 
+    $$P(|\Bar{Y}_n - \mu| < \epsilon) \le \dfrac{1+\theta^2}{n\epsilon^2} \rightarrow 0 $$
+    As $n \rightarrow \infty.$ Hence $\Bar{Y}_n$ converges in probability to $\mu$.
+\end{enumerate}
+
+%----------------------------------------------------------------------------------------------------------
+
+\item 
+\begin{enumerate}[(a)]
+    \item First observe that $$E(Y_1) = \int_0^{\theta}y\dfrac{2y}{\theta^2}dy = \dfrac{2}{3}\theta,$$
+hence $E\Big(\dfrac{3Y_1}{2}\Big) = \theta.$ This immediate implies that $E(W) = \theta.$ Hence $W$ is an unbiased estimator.
+   
+    \item The score function is given by $$S = \frac{\pa}{\pa \theta}\ln f(x,\theta) = -\frac{2}{\theta}.$$
+    Hence $E(S^2) = \frac{4}{\theta^2}.$ Therefore the Cramer-Rao lower bound is given by $CR = \frac{\theta^2}{4N},$ because we have $N$ observations from an iid sample.
+    
+    \item Note that 
+    $$E(Y_1^2) = \int_0^{\theta}y^2\frac{2y}{\theta^2}dy = \frac{\theta^2}{2}.$$
+    Then $$V(Y_1) = \frac{\theta^2}{2} - \frac{4\theta^2}{9} =\frac{\theta^2}{18}.$$
+    Hence 
+    \begin{align*}
+        V(W) = \frac{9V(Y_1)}{4N} = \frac{\theta^2}{8N} < \frac{\theta^2}{4N} = CR 
+    \end{align*}
+    Note that this does not violate the Crámer-Rao lower bound Theorem because we can't change the order of integration in the pdf of this random variable.
+\end{enumerate}
+
+%----------------------------------------------------------------------------------------------------------
+
+\item 
+\begin{enumerate}[(a)]
+    \item We know that $E(Y_1) = E(Y_2) = \theta.$ Hence $$E(W_{\lambda,\mu}) = (\lambda + \mu)\theta $$
+    which equals $\theta$ if and only if $\lambda + \mu = 1.$ Moreover $V(Y_1) = V(Y_2) = \theta^2.$ Since $Y_1$ and $Y_2$ are independent, 
+    $$V(W_{\lambda,\mu}) = (\lambda^2 + \mu^2)\theta^2.$$ 
+    Hence, for an unbiased estimator, 
+    $$V(W_\lambda) = [\lambda^2 + (1-\lambda)^2]\theta^2.$$
+    Which acchieves the minimum at $\lambda = 1/2.$
+    \item 
+\end{enumerate}
+
+%----------------------------------------------------------------------------------------------------------
+
+\item 
+
+%----------------------------------------------------------------------------------------------------------
+
+\item 
+
+%----------------------------------------------------------------------------------------------------------
+
+\item 
+
+%----------------------------------------------------------------------------------------------------------
+
+\end{enumerate}
 
 \end{document}
